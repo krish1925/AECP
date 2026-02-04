@@ -175,7 +175,6 @@ await agent1.calibrateWith(agent2);
 | **docs/api-reference.md** | Full API docs | 10 min |
 | **docs/protocol-spec.md** | Protocol details | 15 min |
 | **PROJECT_OVERVIEW.md** | Architecture | 10 min |
-| **PACKAGE_SUMMARY.md** | Complete summary | 5 min |
 | **CONTRIBUTING.md** | How to contribute | 5 min |
 | **CHANGELOG.md** | Version history | 2 min |
 

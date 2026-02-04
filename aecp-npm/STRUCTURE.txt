@@ -9,7 +9,6 @@ aecp-npm/
 │   ├── QUICK_REFERENCE.md             One-page API cheatsheet
 │   ├── SETUP.md                       Setup and installation guide
 │   ├── PROJECT_OVERVIEW.md            Architecture and design
-│   ├── PACKAGE_SUMMARY.md             Complete package summary
 │   ├── CHANGELOG.md                   Version history
 │   ├── CONTRIBUTING.md                Contribution guidelines
 │   └── LICENSE                        MIT License
