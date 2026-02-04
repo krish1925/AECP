@@ -1,0 +1,12 @@
+*.log
+.DS_Store
+.env
+.env.local
+coverage/
+*.tsbuildinfo
+src/
+tsconfig.json
+examples/
+docs/
+.git/
+.github/
