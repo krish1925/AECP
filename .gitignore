@@ -36,7 +36,7 @@ results/
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
+# *.ipynb - Allow notebooks to be committed
 
 # IDE
 .vscode/
