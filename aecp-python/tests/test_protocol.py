@@ -7,6 +7,7 @@ import numpy as np
 
 from aecp import AECP, ProtocolHandler, CalibrationResult
 from aecp.types import AgentCapabilities, TransferMatrix, SemanticTransfer
+from aecp.errors import AgentNotCalibratedError
 
 
 class TestAgentCapabilities:
@@ -171,8 +172,8 @@ class TestSemanticTransfer:
         assert transfer.embedding.shape == (768,)
     
     def test_transfer_without_calibration_raises(self, agent_a, agent_b):
-        """Transfer without calibration should raise ValueError."""
-        with pytest.raises(ValueError, match="No calibration found"):
+        """Transfer without calibration should raise AgentNotCalibratedError."""
+        with pytest.raises(AgentNotCalibratedError, match="No calibration found"):
             agent_a.transfer_to(agent_b.agent_id, "hello")
     
     def test_receive_transfer(self, calibrated_agents):

@@ -11,6 +11,9 @@ Features:
 - Circuit breaker for failing connections
 - Real-time debug monitoring and cost tracking
 - Thread-safe for multi-agent environments
+- LocalModelAdapter for wrapping pre-loaded models (SentenceTransformer, etc.)
+- Decoupled agent framework (AECPAgent, AECPEnabledAgent) for LLM + AECP
+- MCP integration (AECPMCPServer, AECPMCPClient) for high-fidelity tool calls
 
 Example:
     >>> from aecp import AECP
@@ -31,12 +34,20 @@ Example:
     >>> from aecp.negotiation import AECPNegotiator
     >>> result = AECPNegotiator.send_message(agent1, agent2, "Hello!")
     >>>
-    >>> # Enable debug monitoring
-    >>> from aecp.debug import enable_debug
-    >>> monitor = enable_debug("detailed")
-    >>> # ... run operations ...
-    >>> monitor.dashboard()  # See real-time stats
-    >>> monitor.cost_report()  # See cost analysis
+    >>> # Scenario 1: Local model weights (full control)
+    >>> from aecp.adapters import LocalModelAdapter
+    >>> # model = SentenceTransformer('all-MiniLM-L6-v2')
+    >>> # agent = AECP(LocalModelAdapter(model))
+    >>>
+    >>> # Scenario 2: Decoupled LLM + AECP agent
+    >>> from aecp.integrations import AECPEnabledAgent
+    >>> # agent = AECPEnabledAgent(
+    >>> #     llm_provider="openai:gpt-4",
+    >>> #     embedder=OpenAIAdapter(model="text-embedding-3-small"),
+    >>> # )
+    >>>
+    >>> # Scenario 3: MCP server/client with AECP
+    >>> from aecp.integrations import AECPMCPServer, AECPMCPClient
 
 For more information, see: https://github.com/yourusername/aecp
 """
@@ -92,6 +103,14 @@ from .debug import (
     get_monitor,
 )
 
+# Adapters (direct import for convenience)
+from .adapters.local import LocalModelAdapter
+
+# Integrations (lazy-importable via aecp.integrations)
+from .integrations.base import AECPAgent
+from .integrations.agent_framework import AECPEnabledAgent
+from .integrations.mcp import AECPMCPServer, AECPMCPClient
+
 __version__ = "1.0.0"
 __author__ = "AECP Contributors"
 __license__ = "MIT"
@@ -144,4 +163,11 @@ __all__ = [
     "enable_debug",
     "disable_debug",
     "get_monitor",
+    # Adapters
+    "LocalModelAdapter",
+    # Integrations
+    "AECPAgent",
+    "AECPEnabledAgent",
+    "AECPMCPServer",
+    "AECPMCPClient",
 ]
