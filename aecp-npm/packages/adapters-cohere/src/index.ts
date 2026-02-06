@@ -30,7 +30,7 @@ export class CohereAdapter implements EmbeddingProvider {
       inputType: 'search_document',
     });
 
-    return response.embeddings[0];
+    return (response.embeddings as number[][])[0];
   }
 
   async embedBatch(texts: string[]): Promise<number[][]> {
@@ -40,7 +40,7 @@ export class CohereAdapter implements EmbeddingProvider {
       inputType: 'search_document',
     });
 
-    return response.embeddings;
+    return response.embeddings as number[][];
   }
 
   getDimensions(): number {

@@ -33,6 +33,8 @@ export interface AgentCapabilities {
   protocolVersion: string;
   maxBatchSize: number;
   minQualityThreshold: number;
+  supportsAECP?: boolean;
+  fallbackLanguage?: string;
 }
 
 export interface CalibrationConfig {
@@ -45,10 +47,11 @@ export interface CalibrationConfig {
 export interface TransferMatrix {
   matrixAB: number[][];
   matrixBA: number[][];
-  trainingsimilarity: number;
+  trainingSimilarity: number;
   validationSimilarity: number;
   worstCaseSimilarity: number;
   validUntil: string;
+  createdAt?: string;
 }
 
 export interface QualityMetrics {
@@ -66,6 +69,7 @@ export interface SemanticTransfer {
   targetAgent: string;
   expectedSimilarity: number;
   timestamp: string;
+  originalNorm?: number;
 }
 
 export interface AECPConfig {
@@ -73,6 +77,14 @@ export interface AECPConfig {
   agentId?: string;
   minQualityThreshold?: number;
   maxBatchSize?: number;
+  /** Failures before circuit breaker opens */
+  circuitBreakerThreshold?: number;
+  /** Milliseconds before circuit breaker half-opens */
+  circuitBreakerTimeout?: number;
+  /** Maximum retry attempts */
+  retryMax?: number;
+  /** Base delay between retries in ms */
+  retryBaseDelay?: number;
 }
 
 export interface CalibrationResult {
@@ -80,4 +92,35 @@ export interface CalibrationResult {
   transferMatrix: TransferMatrix;
   qualityMetrics: QualityMetrics;
   calibrationTime: number;
+  vocabularySize?: number;
+  errorMessage?: string;
+}
+
+/**
+ * Result of sending a message (AECP or text fallback)
+ */
+export interface MessageResult {
+  method: 'aecp' | 'text';
+  transferId?: string;
+  embedding?: number[];
+  sourceAgent?: string;
+  targetAgent?: string;
+  expectedSimilarity?: number;
+  timestamp?: string;
+  message?: string;
+  language?: string;
+  fallback?: boolean;
+  fallbackReason?: string;
+  note?: string;
+}
+
+/**
+ * Connection health status
+ */
+export interface ConnectionHealth {
+  calibrated: boolean;
+  expired: boolean;
+  quality: number;
+  circuitBreaker: string;
+  validUntil: string;
 }

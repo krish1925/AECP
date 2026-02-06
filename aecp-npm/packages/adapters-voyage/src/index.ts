@@ -40,7 +40,7 @@ export class VoyageAdapter implements EmbeddingProvider {
       throw new Error(`Voyage API error: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data: any = await response.json();
     return data.data[0].embedding;
   }
 
@@ -61,7 +61,7 @@ export class VoyageAdapter implements EmbeddingProvider {
       throw new Error(`Voyage API error: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data: any = await response.json();
     return data.data.map((item: any) => item.embedding);
   }
 
