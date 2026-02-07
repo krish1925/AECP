@@ -2,7 +2,7 @@
 
 This directory contains reproducible benchmarks to validate the semantic fidelity and performance of AECP.
 
-## 🚀 Run the Benchmark
+##  Run the Benchmark
 
 Prerequisites:
 ```bash

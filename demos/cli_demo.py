@@ -23,22 +23,22 @@ def type_effect(text, delay=0.03):
     print()
 
 def main():
-    print("\n🔮 AECP: Agent Embedding Communication Protocol")
+    print("\n AECP: Agent Embedding Communication Protocol")
     print("---------------------------------------------")
     type_effect("Initializing Agent A (Source)...")
     model_a_name = 'all-MiniLM-L6-v2'
     agent_a = AECP(LocalModelAdapter(SentenceTransformer(model_a_name)))
-    print(f"✅ Agent A ready ({model_a_name})")
+    print(f" Agent A ready ({model_a_name})")
 
     type_effect("Initializing Agent B (Target)...")
     model_b_name = 'all-mpnet-base-v2'
     agent_b = AECP(LocalModelAdapter(SentenceTransformer(model_b_name)))
-    print(f"✅ Agent B ready ({model_b_name})")
+    print(f" Agent B ready ({model_b_name})")
 
-    print("\n🤝 Requesting Calibration...")
+    print("\n Requesting Calibration...")
     time.sleep(0.5)
     agent_a.calibrate_with(agent_b)
-    print("✅ Transfer Matrix Established.")
+    print(" Transfer Matrix Established.")
 
     while True:
         print("\n" + "="*50)
@@ -54,7 +54,7 @@ def main():
         start_t = time.time()
         vec_transferred = agent_a.transfer_to(agent_b, vec_a)
         duration = (time.time() - start_t) * 1000
-        print(f"[AECP] Transferred to Agent B space in {duration:.2f}ms ⚡")
+        print(f"[AECP] Transferred to Agent B space in {duration:.2f}ms ")
 
         # 3. Validation (Agent B checks against its own truth)
         vec_truth = agent_b.embed(query)
@@ -68,7 +68,7 @@ def main():
         print(f"          Semantic Fidelity: {sim:.2%}")
         
         if sim > 0.9:
-             print("          Result: ✅ PERFECT MATCH")
+             print("          Result:  PERFECT MATCH")
         else:
              print("          Result: ⚠️  LOSS DETECTED")
 

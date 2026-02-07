@@ -8,7 +8,7 @@
 
 ---
 
-## 🛑 The Hidden Cost of Agent Swarms
+##  The Hidden Cost of Agent Swarms
 
 **You have a problem.**
 
@@ -26,10 +26,10 @@ Agent A finds 50 critical code snippets relevant to a bug. It needs to pass this
 4.  Agent B **re-encodes** the text (latent again) to understand it.
 
 **Why this fails:**
-*   🔴 **Semantic Loss**: Subtle relationships captured by the code-specific model are flattened into generic text.
-*   🔴 **Latency**: Re-encoding 20k tokens takes seconds.
-*   🔴 **Privacy Risk**: Raw code leaves Agent A's secure boundary.
-*   🔴 **Cost**: You pay for embedding tokens twice.
+*    **Semantic Loss**: Subtle relationships captured by the code-specific model are flattened into generic text.
+*    **Latency**: Re-encoding 20k tokens takes seconds.
+*    **Privacy Risk**: Raw code leaves Agent A's secure boundary.
+*    **Cost**: You pay for embedding tokens twice.
 
 ### The AECP Way: Mathematical Transfer
 
@@ -39,10 +39,10 @@ Agent A finds 50 critical code snippets relevant to a bug. It needs to pass this
 4.  Agent B uses them instantly.
 
 **Why this wins:**
-*   🟢 **97% Semantic Fidelity**: Mathematically aligned latent spaces preserve meaning better than text.
-*   🟢 **Zero Latency**: Matrix multiplication is effectively instant ($O(1)$).
-*   🟢 **Privacy**: Only abstract numbers are shared.
-*   🟢 **Free**: Zero token costs.
+*    **97% Semantic Fidelity**: Mathematically aligned latent spaces preserve meaning better than text.
+*    **Zero Latency**: Matrix multiplication is effectively instant ($O(1)$).
+*    **Privacy**: Only abstract numbers are shared.
+*    **Free**: Zero token costs.
 
 
 ```mermaid
@@ -70,7 +70,7 @@ graph LR
 
 ---
 
-## ⚡ Quick Start (Python)
+##  Quick Start (Python)
 
 AECP is Python-first, designed for the AI engineering ecosystem.
 
@@ -110,7 +110,7 @@ vector_b = agent_a.transfer_to(agent_b, vector_a)
 
 ---
 
-## 📚 Documentation & Spec
+##  Documentation & Spec
 
 AECP is more than a library; it's a protocol.
 
@@ -120,7 +120,7 @@ AECP is more than a library; it's a protocol.
 
 ---
 
-## 🔌 Integrations
+##  Integrations
 
 Plug into your existing stack.
 
@@ -130,7 +130,7 @@ Plug into your existing stack.
 
 ---
 
-## 🚀 Comparison
+##  Comparison
 
 | Metric | Text Handoff | AECP Transfer |
 | :--- | :--- | :--- |
@@ -141,7 +141,7 @@ Plug into your existing stack.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 

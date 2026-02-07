@@ -21,7 +21,7 @@ program
     .command('basic')
     .description('Run a basic semantic transfer demo')
     .action(async () => {
-        console.log(chalk.bold.blue('\n🚀 AECP Zero-Friction Demo: Basic Transfer\n'));
+        console.log(chalk.bold.blue('\n AECP Zero-Friction Demo: Basic Transfer\n'));
 
         const spinner = ora('Initializing purely local models (no API keys needed)...').start();
 
@@ -38,7 +38,7 @@ program
 
             const query = "How do I optimize database queries?";
 
-            console.log(chalk.yellow(`\n📝 Query: "${query}"`));
+            console.log(chalk.yellow(`\n Query: "${query}"`));
 
             // 1. Text Handoff Simulation
             const textSpinner = ora('Simulating Traditional Text Handoff...').start();

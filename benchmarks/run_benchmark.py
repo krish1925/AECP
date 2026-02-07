@@ -22,7 +22,7 @@ except ImportError:
         sys.exit(1)
 
 def run_benchmark(source_model_name, target_model_name, num_samples=1000):
-    print(f"\n🚀 Starting AECP Benchmark")
+    print(f"\n Starting AECP Benchmark")
     print(f"==================================================")
     print(f"Source Model: {source_model_name}")
     print(f"Target Model: {target_model_name}")
@@ -30,11 +30,11 @@ def run_benchmark(source_model_name, target_model_name, num_samples=1000):
     print(f"==================================================\n")
 
     # 1. Load Models
-    print("⏳ Loading models... (this may take a minute)")
+    print(" Loading models... (this may take a minute)")
     start_load = time.time()
     source_model = SentenceTransformer(source_model_name)
     target_model = SentenceTransformer(target_model_name)
-    print(f"✅ Models loaded in {time.time() - start_load:.2f}s")
+    print(f" Models loaded in {time.time() - start_load:.2f}s")
 
     # 2. Initialize Agents
     agent_a = AECP(LocalModelAdapter(source_model))
@@ -45,12 +45,12 @@ def run_benchmark(source_model_name, target_model_name, num_samples=1000):
     start_cal = time.time()
     _ = agent_a.calibrate_with(agent_b)
     cal_time = time.time() - start_cal
-    print(f"✅ Calibration complete in {cal_time:.2f}s")
+    print(f" Calibration complete in {cal_time:.2f}s")
 
     # 4. Generate Test Data (Synthetic)
     # In a real benchmark, load MTEB data. Here we use a diverse set of phrases.
     # We use a preset list effectively representing a "Lite" benchmark.
-    print(f"\n🧪 Generating {num_samples} test samples...")
+    print(f"\n Generating {num_samples} test samples...")
     # diverse_phrases usually come from a dataset, here we synthesize or use a small hardcoded list for the 'demo' benchmark
     # Ideally, we'd pull from MTEB. For this script to be standalone and fast, we'll use a mix.
     
@@ -118,7 +118,7 @@ def run_benchmark(source_model_name, target_model_name, num_samples=1000):
     similarities = cosine_similarity(vectors_b_ground_truth, vectors_transferred).diagonal()
     avg_fidelity = np.mean(similarities)
     
-    print("\n📊 RESULTS")
+    print("\n RESULTS")
     print(f"--------------------------------------------------")
     print(f"Semantic Fidelity:      {avg_fidelity:.2%} (Target: >95%)")
     print(f"Latency (Text Handoff): {time_b_encode_avg*1000:.2f} ms/doc")
@@ -127,7 +127,7 @@ def run_benchmark(source_model_name, target_model_name, num_samples=1000):
     print(f"--------------------------------------------------")
     
     if avg_fidelity > 0.90:
-        print("\n✅ PASSED: High Fidelity Achieved")
+        print("\n PASSED: High Fidelity Achieved")
     else:
         print("\n⚠️  WARNING: Fidelity below target")
 

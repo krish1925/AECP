@@ -12,7 +12,7 @@ console = Console()
 @app.command()
 def basic():
     """Run a basic semantic transfer demo comparing Text vs Vector handoff."""
-    console.print("\n[bold blue]🚀 AECP Zero-Friction Demo: Basic Transfer[/bold blue]\n")
+    console.print("\n[bold blue] AECP Zero-Friction Demo: Basic Transfer[/bold blue]\n")
 
     with Progress(
         SpinnerColumn(),
@@ -31,7 +31,7 @@ def basic():
     console.print("[green]✔ Agents initialized locally.[/green]")
 
     query = "How do I optimize database queries?"
-    console.print(f"\n[yellow]📝 Query: \"{query}\"[/yellow]")
+    console.print(f"\n[yellow] Query: \"{query}\"[/yellow]")
 
     # 1. Text Handoff Simulation
     start_text = time.time()

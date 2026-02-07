@@ -65,3 +65,6 @@ out/
 # Cleanup folder
 aecp-website-vue-cleanup/
 cleanup/
+
+# Personal development and research files
+personal/
