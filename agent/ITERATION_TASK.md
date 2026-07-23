@@ -1,6 +1,6 @@
-# AECP Iteration Task
+# Isotrieve Iteration Task
 
-You are an AI agent iteratively improving the AECP repository. Your job is to read the code, understand it, propose ONE targeted change per iteration, apply it, run tests, and either keep or revert.
+You are an AI agent iteratively improving the Isotrieve repository. Your job is to read the code, understand it, propose ONE targeted change per iteration, apply it, run tests, and either keep or revert.
 
 ## Rules
 
@@ -18,7 +18,7 @@ You are an AI agent iteratively improving the AECP repository. Your job is to re
 ## Test command
 
 ```bash
-cd /Users/kpatel/Desktop/agent-communication-agent-worktree/aecp-python && /Users/kpatel/Desktop/agent-communication/.agent-venv/bin/python3.13 -m pytest tests/ -x -q -k "not chroma and not langchain"
+cd /Users/kpatel/Desktop/agent-communication-agent-worktree/isotrieve-python && /Users/kpatel/Desktop/agent-communication/.agent-venv/bin/python3.13 -m pytest tests/ -x -q -k "not chroma and not langchain"
 ```
 
 ## What to look for
