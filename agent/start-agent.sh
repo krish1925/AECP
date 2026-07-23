@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# AECP Agent Launch Script
+# Isotrieve Agent Launch Script
 # =============================================================================
 # This script:
 #   1. Starts the MLX model server in the background
@@ -14,7 +14,7 @@
 # Prerequisites:
 #   - mlx-lm installed (pip install mlx-lm --break-system-packages)
 #   - hermes-agent installed (curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash)
-#   - aecp dependencies installed in .agent-venv
+#   - isotrieve dependencies installed in .agent-venv
 # =============================================================================
 
 set -euo pipefail
@@ -65,7 +65,7 @@ fi
 
 if [ ! -x "$VENV_PYTHON" ]; then
     log_error "Python venv not found at $VENV_PYTHON"
-    log_info "Create with: python3.13 -m venv $MAIN_REPO/.agent-venv && $MAIN_REPO/.agent-venv/bin/pip install -e '$MAIN_REPO/aecp-python[dev]'"
+    log_info "Create with: python3.13 -m venv $MAIN_REPO/.agent-venv && $MAIN_REPO/.agent-venv/bin/pip install -e '$MAIN_REPO/isotrieve-python[dev]'"
     exit 1
 fi
 
