@@ -24,6 +24,7 @@ def get_mapping_class(mapping_type: str) -> type[Mapping]:
 
 
 def _ensure_builtins() -> None:
+    from isotrieve.mapping.contrastive import ContrastiveMapping
     from isotrieve.mapping.linear import (
         LowRankAffineMapping,
         OrthogonalProcrustesMapping,
@@ -35,6 +36,7 @@ def _ensure_builtins() -> None:
     register_mapping(OrthogonalProcrustesMapping)
     register_mapping(ProcrustesDiagMapping)
     register_mapping(LowRankAffineMapping)
+    register_mapping(ContrastiveMapping)
 
     # Optional: ResidualMLP (only if torch available)
     try:

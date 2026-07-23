@@ -1,6 +1,7 @@
 """Embedding-space mappings."""
 
 from isotrieve.mapping.base import Mapping, ValidationReport, read_isotrieve_header
+from isotrieve.mapping.contrastive import ContrastiveMapping
 from isotrieve.mapping.linear import (
     LowRankAffineMapping,
     OrthogonalProcrustesMapping,
@@ -12,6 +13,7 @@ from isotrieve.mapping.registry import load_mapping
 __all__ = [
     "Mapping",
     "ValidationReport",
+    "ContrastiveMapping",
     "RidgeMapping",
     "OrthogonalProcrustesMapping",
     "ProcrustesDiagMapping",
